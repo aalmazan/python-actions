@@ -40,6 +40,7 @@ $(DEPENDENCIES): poetry.lock
 	@ rm -rf $(VIRTUAL_ENV)/.poetry-*
 	@ poetry config virtualenvs.in-project true
 	poetry install
+	ls $(VIRTUAL_ENV)/.poetry*
 	@ touch $@
 
 ifndef CI

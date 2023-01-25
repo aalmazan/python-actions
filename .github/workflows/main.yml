@@ -25,13 +25,16 @@ jobs:
         python-version: ${{ matrix.python-version }}
         cache: 'poetry'
 
+    - name: Install poetry dependencies
+      run: poetry install
+
     - name: Check dependencies
       run: make doctor
 
-    - uses: actions/cache@v2
-      with:
-        path: .venv
-        key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+#    - uses: actions/cache@v2
+#      with:
+#        path: .venv
+#        key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
 
     - name: Install dependencies
       run: make install

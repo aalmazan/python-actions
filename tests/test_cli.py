@@ -2,7 +2,6 @@
 # pylint: disable=redefined-outer-name,unused-variable,expression-not-assigned
 
 import pytest
-
 from click.testing import CliRunner
 
 from actions.cli import main
@@ -14,16 +13,14 @@ def runner():
 
 
 def describe_cli():
-
     def describe_conversion():
-
         def when_integer(runner):
-            result = runner.invoke(main, ['42'])
+            result = runner.invoke(main, ["42"])
             assert result.exit_code == 0
             assert result.output == "12.80165\n"
             assert False
 
         def when_invalid(runner):
-            result = runner.invoke(main, ['foobar'])
+            result = runner.invoke(main, ["foobar"])
             assert result.exit_code == 0
             assert result.output == ""

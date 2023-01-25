@@ -11,14 +11,19 @@ jobs:
         python-version: [3.9]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-
-    - uses: Gr1N/setup-poetry@v7
+        cache: 'poetry'
 
     - name: Check dependencies
       run: make doctor
@@ -37,7 +42,7 @@ jobs:
     - name: Test code
       run: make test
 
-    - name: Upload coverage
-      uses: codecov/codecov-action@v1
-      with:
-        fail_ci_if_error: true
+#    - name: Upload coverage
+#      uses: codecov/codecov-action@v1
+#      with:
+#        fail_ci_if_error: true

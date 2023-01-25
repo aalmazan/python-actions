@@ -1,7 +1,7 @@
 [tool.poetry]
 
-name = "PythonActions"
-version = "0.0"
+name = "python-actions"
+version = "0.0.1"
 description = "Python actions examples"
 
 packages = [{ include = "actions" }]
@@ -50,7 +50,6 @@ wrapt = "*" # missing 'pylint' dependency
 # Testing
 pytest = "^7.1"
 pytest-describe = "^2.0"
-pytest-expecter = "^3.0"
 pytest-random = "*"
 pytest-cov = "^3.0"
 freezegun = "*"

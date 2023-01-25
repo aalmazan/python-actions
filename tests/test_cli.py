@@ -18,7 +18,6 @@ def describe_cli():
             result = runner.invoke(main, ["42"])
             assert result.exit_code == 0
             assert result.output == "12.80165\n"
-            assert False
 
         def when_invalid(runner):
             result = runner.invoke(main, ["foobar"])

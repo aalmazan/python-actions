@@ -31,11 +31,6 @@ jobs:
     - name: Check dependencies
       run: make doctor
 
-#    - uses: actions/cache@v2
-#      with:
-#        path: .venv
-#        key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
-
     - name: Install dependencies
       run: make install
 
@@ -45,7 +40,7 @@ jobs:
     - name: Test code
       run: make test
 
-#    - name: Upload coverage
-#      uses: codecov/codecov-action@v1
-#      with:
-#        fail_ci_if_error: true
+    - name: Upload coverage
+      uses: codecov/codecov-action@v1
+      with:
+        fail_ci_if_error: true

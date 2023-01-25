@@ -11,14 +11,15 @@ jobs:
         python-version: [3.9]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+        cache: 'poetry'
 
-    - uses: Gr1N/setup-poetry@v7
+#    - uses: Gr1N/setup-poetry@v7
 
     - name: Check dependencies
       run: make doctor
@@ -37,7 +38,7 @@ jobs:
     - name: Test code
       run: make test
 
-    - name: Upload coverage
-      uses: codecov/codecov-action@v1
-      with:
-        fail_ci_if_error: true
+#    - name: Upload coverage
+#      uses: codecov/codecov-action@v1
+#      with:
+#        fail_ci_if_error: true
